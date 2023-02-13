@@ -7,10 +7,7 @@ import {
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./src/infrastructure/theme";
-import { RestaurantContextProvider } from "./src/services/Restaurants/restaurant.context";
-import { LocationContextProvider } from "./src/services/location/location.context";
 import Navigation from "./src/infrastructure/navigation";
-import { FavoritesContextProvider } from "./src/services/favorites/favroitesContext";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { AuthenticationContextProvider } from "./src/services/authentication/authenticationContext";
@@ -38,13 +35,7 @@ export default function App() {
       <StatusBar style="dark" />
       <ThemeProvider theme={theme}>
         <AuthenticationContextProvider>
-          <FavoritesContextProvider>
-            <LocationContextProvider>
-              <RestaurantContextProvider>
-                <Navigation />
-              </RestaurantContextProvider>
-            </LocationContextProvider>
-          </FavoritesContextProvider>
+          <Navigation />
         </AuthenticationContextProvider>
       </ThemeProvider>
     </>

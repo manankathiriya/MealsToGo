@@ -8,23 +8,13 @@ import { RestaurantContext } from "../../../services/Restaurants/restaurant.cont
 import { Search } from "../components/search.component";
 import { FavoritesBar } from "../../../components/favorites/favoritesBarComponent";
 import { FavoritesContext } from "../../../services/favorites/favroitesContext";
-
+import { RestaurantList } from "../components/Restaurant-list.styles";
+import { FadeView } from "../../../components/animations/fade.animation";
 const Restaurant = styled.SafeAreaView`
   flex: 1;
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+  background-color: ${(props) => props.theme.colors.bg.primary};
 `;
-
-// const RestaurantList = styled.View`
-//   background-color: ${(props) => props.theme.colors.bg.primary};
-//   flex: 1;
-//   padding: ${(props) => props.theme.space[2]};
-// `;
-
-const RestaurantList = styled(FlatList).attrs({
-  contentContainerStyle: {
-    padding: 16,
-  },
-})``;
 
 const ActivityContainer = styled.View`
   position: absolute;
@@ -64,7 +54,9 @@ function RestaurantsScreen({ navigation }) {
             }
           >
             <Spacer position="bottom" size="large">
-              <RestaurantInfoCard restaurant={item} />
+              <FadeView>
+                <RestaurantInfoCard restaurant={item} />
+              </FadeView>
             </Spacer>
           </TouchableOpacity>
         )}

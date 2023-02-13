@@ -13,7 +13,7 @@ const defaultDisplayedText = (theme) =>
     `;
 
 const body = (theme) => `
-    font-size: ${theme.fontSizes.body};
+    font-size: ${theme.fontSizes.title};
 `;
 
 const hint = (theme) => `
